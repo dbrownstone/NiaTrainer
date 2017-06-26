@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		632663E21EF039AD00F845B7 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632663E11EF039AD00F845B7 /* Member.swift */; };
+		632A81C91EE68DC100DFA84D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */; };
+		6365BFE51EEA9F900028A259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6365BFE41EEA9F900028A259 /* Assets.xcassets */; };
+		6365BFE71EEAAF3B0028A259 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6365BFE61EEAAF3B0028A259 /* Checkbox.swift */; };
+		6365BFEA1EEAB1ED0028A259 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6365BFE81EEAB1ED0028A259 /* Main.storyboard */; };
+		637CDE041EF56DC100936538 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CDE031EF56DC100936538 /* ChatViewController.swift */; };
+		639F3B5C1EE90E7B00C170B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3B5B1EE90E7B00C170B6 /* LoginViewController.swift */; };
+		639F3B5E1EEA5A2A00C170B6 /* KeychainSwiftDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F3B5D1EEA5A2A00C170B6 /* KeychainSwiftDistrib.swift */; };
+		63F1CC601EE4353800EF1809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1CC5F1EE4353800EF1809 /* AppDelegate.swift */; };
+		63F1CC621EE4353800EF1809 /* NiaClassListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1CC611EE4353800EF1809 /* NiaClassListViewController.swift */; };
+		63F1CC6A1EE4353800EF1809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63F1CC681EE4353800EF1809 /* LaunchScreen.storyboard */; };
+		63F1CC911EE444F500EF1809 /* NiaClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1CC901EE444F500EF1809 /* NiaClass.swift */; };
+		63F1CC931EE4478400EF1809 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1CC921EE4478400EF1809 /* User.swift */; };
+		63F1CC991EE5136B00EF1809 /* NiaClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F1CC981EE5136B00EF1809 /* NiaClassViewController.swift */; };
+		DA21E9EF5525F74897021C83 /* Pods_NiaNow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 803394FFBEF63C7A5CE5B518 /* Pods_NiaNow.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		45F1D029D8957987F0345C51 /* Pods-NiaNowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowTests/Pods-NiaNowTests.debug.xcconfig"; sourceTree = "<group>"; };
+		58A1A71A285D14FDF1FF691A /* Pods-NiaNowUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowUITests/Pods-NiaNowUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		632663E11EF039AD00F845B7 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6365BFE41EEA9F900028A259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6365BFE61EEAAF3B0028A259 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		6365BFE91EEAB1ED0028A259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		637CDE031EF56DC100936538 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		637CDE051EF5A23500936538 /* NiaNow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NiaNow.entitlements; sourceTree = "<group>"; };
+		639F3B5B1EE90E7B00C170B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		639F3B5D1EEA5A2A00C170B6 /* KeychainSwiftDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainSwiftDistrib.swift; sourceTree = "<group>"; };
+		63F1CC5C1EE4353800EF1809 /* NiaNow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiaNow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F1CC5F1EE4353800EF1809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		63F1CC611EE4353800EF1809 /* NiaClassListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiaClassListViewController.swift; sourceTree = "<group>"; };
+		63F1CC691EE4353800EF1809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		63F1CC6B1EE4353800EF1809 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63F1CC901EE444F500EF1809 /* NiaClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiaClass.swift; sourceTree = "<group>"; };
+		63F1CC921EE4478400EF1809 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		63F1CC981EE5136B00EF1809 /* NiaClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NiaClassViewController.swift; sourceTree = "<group>"; };
+		724D4A3B6AD94B52A6ED7188 /* Pods-NiaNowUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowUITests/Pods-NiaNowUITests.release.xcconfig"; sourceTree = "<group>"; };
+		803394FFBEF63C7A5CE5B518 /* Pods_NiaNow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiaNow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		818B6B81CA857F6DBAF2247B /* Pods-NiaNow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNow/Pods-NiaNow.debug.xcconfig"; sourceTree = "<group>"; };
+		8B100CACED08554420224051 /* Pods-NiaNowTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowTests/Pods-NiaNowTests.release.xcconfig"; sourceTree = "<group>"; };
+		C38B7B9AA6FD0649AC69A8A6 /* Pods_NiaNowTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiaNowTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81A6DA732D4AB92A108771B /* Pods_NiaNowUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NiaNowUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFC1D9E5662501CE495F430E /* Pods-NiaNow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNow.release.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNow/Pods-NiaNow.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63F1CC591EE4353800EF1809 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA21E9EF5525F74897021C83 /* Pods_NiaNow.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D8402B733E1BFE016EDEE27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				803394FFBEF63C7A5CE5B518 /* Pods_NiaNow.framework */,
+				C38B7B9AA6FD0649AC69A8A6 /* Pods_NiaNowTests.framework */,
+				D81A6DA732D4AB92A108771B /* Pods_NiaNowUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		632A81CC1EE7CD5100DFA84D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				637CDE031EF56DC100936538 /* ChatViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		639F3B5F1EEA5A3200C170B6 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				639F3B5D1EEA5A2A00C170B6 /* KeychainSwiftDistrib.swift */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
+		63F1CC531EE4353800EF1809 = {
+			isa = PBXGroup;
+			children = (
+				63F1CC5E1EE4353800EF1809 /* NiaNow */,
+				63F1CC5D1EE4353800EF1809 /* Products */,
+				6C87E90FA40FC698C80B5AE9 /* Pods */,
+				2D8402B733E1BFE016EDEE27 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		63F1CC5D1EE4353800EF1809 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63F1CC5C1EE4353800EF1809 /* NiaNow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63F1CC5E1EE4353800EF1809 /* NiaNow */ = {
+			isa = PBXGroup;
+			children = (
+				637CDE051EF5A23500936538 /* NiaNow.entitlements */,
+				639F3B5F1EEA5A3200C170B6 /* Keychain */,
+				63F1CC8F1EE4442600EF1809 /* Models */,
+				63F1CC5F1EE4353800EF1809 /* AppDelegate.swift */,
+				639F3B5B1EE90E7B00C170B6 /* LoginViewController.swift */,
+				63F1CC611EE4353800EF1809 /* NiaClassListViewController.swift */,
+				63F1CC981EE5136B00EF1809 /* NiaClassViewController.swift */,
+				632A81CC1EE7CD5100DFA84D /* Chat */,
+				6365BFE41EEA9F900028A259 /* Assets.xcassets */,
+				63F1CC681EE4353800EF1809 /* LaunchScreen.storyboard */,
+				6365BFE81EEAB1ED0028A259 /* Main.storyboard */,
+				63F1CC6B1EE4353800EF1809 /* Info.plist */,
+				632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */,
+			);
+			path = NiaNow;
+			sourceTree = "<group>";
+		};
+		63F1CC8F1EE4442600EF1809 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6365BFE61EEAAF3B0028A259 /* Checkbox.swift */,
+				63F1CC901EE444F500EF1809 /* NiaClass.swift */,
+				63F1CC921EE4478400EF1809 /* User.swift */,
+				632663E11EF039AD00F845B7 /* Member.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		6C87E90FA40FC698C80B5AE9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				818B6B81CA857F6DBAF2247B /* Pods-NiaNow.debug.xcconfig */,
+				DFC1D9E5662501CE495F430E /* Pods-NiaNow.release.xcconfig */,
+				45F1D029D8957987F0345C51 /* Pods-NiaNowTests.debug.xcconfig */,
+				8B100CACED08554420224051 /* Pods-NiaNowTests.release.xcconfig */,
+				58A1A71A285D14FDF1FF691A /* Pods-NiaNowUITests.debug.xcconfig */,
+				724D4A3B6AD94B52A6ED7188 /* Pods-NiaNowUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63F1CC5B1EE4353800EF1809 /* NiaNow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63F1CC841EE4353900EF1809 /* Build configuration list for PBXNativeTarget "NiaNow" */;
+			buildPhases = (
+				BDB60572D178BF1C1569317D /* [CP] Check Pods Manifest.lock */,
+				63F1CC581EE4353800EF1809 /* Sources */,
+				63F1CC591EE4353800EF1809 /* Frameworks */,
+				63F1CC5A1EE4353800EF1809 /* Resources */,
+				D08D9BC02F60F3FEC05E2734 /* [CP] Embed Pods Frameworks */,
+				6AD987AC8D7070365817B9B9 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NiaNow;
+			productName = NiaNow;
+			productReference = 63F1CC5C1EE4353800EF1809 /* NiaNow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63F1CC541EE4353800EF1809 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "David Brownstone";
+				TargetAttributes = {
+					63F1CC5B1EE4353800EF1809 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = K2U9D4SGK5;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 63F1CC571EE4353800EF1809 /* Build configuration list for PBXProject "NiaNow" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63F1CC531EE4353800EF1809;
+			productRefGroup = 63F1CC5D1EE4353800EF1809 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63F1CC5B1EE4353800EF1809 /* NiaNow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63F1CC5A1EE4353800EF1809 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63F1CC6A1EE4353800EF1809 /* LaunchScreen.storyboard in Resources */,
+				632A81C91EE68DC100DFA84D /* GoogleService-Info.plist in Resources */,
+				6365BFE51EEA9F900028A259 /* Assets.xcassets in Resources */,
+				6365BFEA1EEAB1ED0028A259 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6AD987AC8D7070365817B9B9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiaNow/Pods-NiaNow-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDB60572D178BF1C1569317D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D08D9BC02F60F3FEC05E2734 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NiaNow/Pods-NiaNow-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63F1CC581EE4353800EF1809 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63F1CC911EE444F500EF1809 /* NiaClass.swift in Sources */,
+				63F1CC991EE5136B00EF1809 /* NiaClassViewController.swift in Sources */,
+				637CDE041EF56DC100936538 /* ChatViewController.swift in Sources */,
+				63F1CC621EE4353800EF1809 /* NiaClassListViewController.swift in Sources */,
+				63F1CC931EE4478400EF1809 /* User.swift in Sources */,
+				639F3B5E1EEA5A2A00C170B6 /* KeychainSwiftDistrib.swift in Sources */,
+				6365BFE71EEAAF3B0028A259 /* Checkbox.swift in Sources */,
+				639F3B5C1EE90E7B00C170B6 /* LoginViewController.swift in Sources */,
+				63F1CC601EE4353800EF1809 /* AppDelegate.swift in Sources */,
+				632663E21EF039AD00F845B7 /* Member.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6365BFE81EEAB1ED0028A259 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6365BFE91EEAB1ED0028A259 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		63F1CC681EE4353800EF1809 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				63F1CC691EE4353800EF1809 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		63F1CC821EE4353900EF1809 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63F1CC831EE4353900EF1809 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63F1CC851EE4353900EF1809 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 818B6B81CA857F6DBAF2247B /* Pods-NiaNow.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NiaNow/NiaNow.entitlements;
+				DEVELOPMENT_TEAM = K2U9D4SGK5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = NiaNow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brownstone.NiaNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		63F1CC861EE4353900EF1809 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DFC1D9E5662501CE495F430E /* Pods-NiaNow.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NiaNow/NiaNow.entitlements;
+				DEVELOPMENT_TEAM = K2U9D4SGK5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = NiaNow/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brownstone.NiaNow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63F1CC571EE4353800EF1809 /* Build configuration list for PBXProject "NiaNow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63F1CC821EE4353900EF1809 /* Debug */,
+				63F1CC831EE4353900EF1809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63F1CC841EE4353900EF1809 /* Build configuration list for PBXNativeTarget "NiaNow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63F1CC851EE4353900EF1809 /* Debug */,
+				63F1CC861EE4353900EF1809 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63F1CC541EE4353800EF1809 /* Project object */;
+}
