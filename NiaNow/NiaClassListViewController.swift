@@ -83,12 +83,24 @@ class NiaClassListViewController: UITableViewController {
     
     // MARK: - User Actions -
     
+    
+    @IBAction func selectAnAction(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            if self.classes.count > 1 {
+            } else {
+                self.performSegue(withIdentifier: "showClassChat", sender:self.classes[0])            }
+        default:
+            didClickOnAddButton()
+        }
+    }
+    
     @IBAction func didClickOnEditButton(_ sender: UIBarButtonItem) {
         isEditingMode = !isEditingMode
         self.tableView.setEditing(isEditingMode, animated: true)
     }
     
-    @IBAction func didClickOnAddButton(_ sender: UIBarButtonItem) {
+    func didClickOnAddButton() {
         displayAlertToAddClass()
     }
     

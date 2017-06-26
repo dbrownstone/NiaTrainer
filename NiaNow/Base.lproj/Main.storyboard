@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G18a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZO1-G1-476">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A291j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZO1-G1-476">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -54,10 +54,18 @@
                                 <action selector="logout:" destination="6Lo-nO-a1r" id="PXf-Up-3aD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qhG-yw-VIG">
-                            <connections>
-                                <action selector="didClickOnAddButton:" destination="6Lo-nO-a1r" id="rRy-yn-1xv"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="pmS-dB-Fbg">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="RSo-W2-Hvd">
+                                <rect key="frame" x="170" y="7" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Chat"/>
+                                    <segment title="Add Class"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectAnAction:" destination="6Lo-nO-a1r" eventType="valueChanged" id="96i-f4-3hY"/>
+                                </connections>
+                            </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
