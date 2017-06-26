@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import MGSwipeTableCell
 
 class NiaClassListViewController: UITableViewController {
     
@@ -38,6 +37,15 @@ class NiaClassListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let segment: UISegmentedControl = UISegmentedControl(items: ["Chat", "Add Class"])
+        segment.sizeToFit()
+        segment.tintColor = UIColor.darkGray
+        segment.setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Futura-Medium", size: 15)!],
+                                       for: UIControlState.normal)
+        segment.addTarget(self, action: #selector(NiaClassListViewController.segmentAction(_:)), for: .valueChanged)
+        
+        self.navigationItem.titleView = segment
         
         self.membersEmail = self.keychain.get("email")!
         self.membersPhone = keychain.get("phone")!
@@ -84,7 +92,7 @@ class NiaClassListViewController: UITableViewController {
     // MARK: - User Actions -
     
     
-    @IBAction func selectAnAction(_ sender: UISegmentedControl) {
+    func segmentAction(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
             if self.classes.count > 1 {
@@ -158,7 +166,7 @@ class NiaClassListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell") as! MGSwipeTableCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell")!
         
         if indexPath.row == 0 {
             cell.textLabel?.text = ""
@@ -167,12 +175,6 @@ class NiaClassListViewController: UITableViewController {
             return cell
         }
         let niaClass = classes[indexPath.row - 1]
-        let chatButton = MGSwipeButton(title: " Chat ", backgroundColor: UIColor.blue, callback: {
-            (sender: MGSwipeTableCell!) -> Bool in
-            self.performSegue(withIdentifier: "showClassChat", sender:self.classes[indexPath.row - 1])
-            return false
-        })
-        cell.leftButtons = [chatButton]
         cell.textLabel?.text = niaClass.name
         cell.detailTextLabel?.text = "Members: \(niaClass.numberOfUsers())"
         return cell

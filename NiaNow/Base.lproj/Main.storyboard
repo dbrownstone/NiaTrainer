@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="17A291j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZO1-G1-476">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G18a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZO1-G1-476">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="sW0-mF-cB0" detailTextLabel="rAC-tZ-DPO" style="IBUITableViewCellStyleSubtitle" id="41d-kC-xHN" customClass="MGSwipeTableCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listCell" textLabel="sW0-mF-cB0" detailTextLabel="rAC-tZ-DPO" style="IBUITableViewCellStyleSubtitle" id="41d-kC-xHN">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="41d-kC-xHN" id="Kbj-0z-4ul">
@@ -53,19 +53,6 @@
                             <connections>
                                 <action selector="logout:" destination="6Lo-nO-a1r" id="PXf-Up-3aD"/>
                             </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="pmS-dB-Fbg">
-                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="RSo-W2-Hvd">
-                                <rect key="frame" x="170" y="7" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Chat"/>
-                                    <segment title="Add Class"/>
-                                </segments>
-                                <connections>
-                                    <action selector="selectAnAction:" destination="6Lo-nO-a1r" eventType="valueChanged" id="96i-f4-3hY"/>
-                                </connections>
-                            </segmentedControl>
                         </barButtonItem>
                     </navigationItem>
                     <connections>

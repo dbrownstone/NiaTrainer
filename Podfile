@@ -9,7 +9,6 @@ target 'NiaNow' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'JSQMessagesViewController'
-  pod 'MGSwipeTableCell'
   pod 'EasyTipView'
 
 end
