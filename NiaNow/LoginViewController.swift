@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var uid = ""
     var rememberMe = false
     var memberExistsInDB = false
-    var currentMember:Member!
     
     // MARK: Outlets
     @IBOutlet weak var dataView:UIView!
@@ -109,9 +108,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 return            }
             else if let user = user {
                 print(user.displayName ?? "")
-                self.membersName = user.displayName ?? ""
                 self.memberExistsInDB = true
                 self.uid = user.uid
+                loggedInMember = Member(email: self.email,  name: self.membersName, phone: self.phone, uid: self.uid, niaClass:"")
+                self.updateUserProfile(fullname:self.membersName)
             }
             self.continueToNextScreen()
         }
@@ -130,15 +130,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let ref = Database.database().reference(withPath: "users")
                 let memberRef = ref.child((self.membersName.lowercased()))
                 memberRef.setValue(member.toAnyObject())
-                
+                loggedInMember = member
 //                self.setKeyChainParameters()
                 self.updateUserProfile(fullname:self.membersName)
             }
         }
-        let member = Member(email: email,  name: membersName, phone: phone, uid: (UUID().uuidString), niaClass: "")
-        let ref = Database.database().reference(withPath: "users")
-        let memberRef = ref.child((self.membersName.lowercased()))
-        memberRef.setValue(member.toAnyObject())
+//        let member = Member(email: email,  name: membersName, phone: phone, uid: (UUID().uuidString), niaClass: "")
+//        let ref = Database.database().reference(withPath: "users")
+//        let memberRef = ref.child((self.membersName.lowercased()))
+//        memberRef.setValue(member.toAnyObject())
     }
     
     func showAlert(message:String) {
@@ -303,20 +303,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Navigation
     
     @IBAction func unwindToVC1(segue:UIStoryboardSegue) {
-        email = ""
-        password = ""
-        membersName = ""
-        rememberMe = false
+//        email = ""
+//        password = ""
+//        membersName = ""
+//        rememberMe = false
         textFieldLoginEmail.text = ""
         textFieldLoginPassword.text = ""
 //        textFieldLoginPhone.text = ""
         checkbox.setValue(false)
         
-        self.keychain.set(self.email, forKey: "email")
-        self.keychain.set(self.password, forKey:"password")
-        self.keychain.set(self.phone, forKey:"phone")
-        self.keychain.set(self.membersName, forKey:"fullname")
-        self.keychain.set(String(self.rememberMe), forKey:"rememberme")
+//        self.keychain.set(self.email, forKey: "email")
+//        self.keychain.set(self.password, forKey:"password")
+//        self.keychain.set(self.phone, forKey:"phone")
+//        self.keychain.set(self.membersName, forKey:"fullname")
+//        self.keychain.set(String(self.rememberMe), forKey:"rememberme")
     }
 
     // MARK - UITextViewDelegate

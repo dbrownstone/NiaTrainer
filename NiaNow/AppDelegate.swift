@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 var appDelegate:AppDelegate = (UIApplication.shared).delegate as! AppDelegate
+var loggedInMember:Member!
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         Database.database().isPersistenceEnabled = true
+        loggedInMember = nil
         return true
     }
 
@@ -44,34 +46,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
-        signOut()
     }
 
     public func signOut() {
-        if Auth.auth().currentUser != nil {
-            let memberName:String = (Auth.auth().currentUser?.displayName)!
-            do {
-                try Auth.auth().signOut()
-                self.changeMemberAuthentication(membersName:memberName, newLoginStatus:false)
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+        
+        do {
+            try Auth.auth().signOut()
+            self.changeMemberAuthentication(newLoginStatus:false)
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
     }
     
-    public func changeMemberAuthentication(membersName: String, newLoginStatus:Bool) {
-        let usersRef = Database.database().reference(withPath: "users")
-        usersRef.observe(.value, with: { snapshot in
-            for aUser in snapshot.children {
-                var member = Member(snapshot: aUser as! DataSnapshot)
-                if member.name == membersName {
-                    member.authenticated = newLoginStatus
-                    let memberRef = usersRef.child((membersName.lowercased()))
-                    memberRef.setValue(member.toAnyObject())
-                    break
-                }
-            }
-        })
+    private func changeMemberAuthentication(newLoginStatus:Bool) {
+        loggedInMember.authenticated = false
+        let ref = Database.database().reference(withPath: "users")
+        let memberRef = ref.child((loggedInMember.name.lowercased()))
+        memberRef.setValue(loggedInMember.toAnyObject())
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = loggedInMember.name
+        
+        // Commit profile changes to server
+        changeRequest?.commitChanges() { (error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } 
+        }
     }
 }
 

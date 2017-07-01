@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63188E7E1F0518FF008B762E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63188E7D1F0518FF008B762E /* Assets.xcassets */; };
 		632663E21EF039AD00F845B7 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632663E11EF039AD00F845B7 /* Member.swift */; };
 		632A81C91EE68DC100DFA84D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */; };
-		6365BFE51EEA9F900028A259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6365BFE41EEA9F900028A259 /* Assets.xcassets */; };
+		635045621F07C2FB00704A5A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 635045611F07C2FB00704A5A /* Assets.xcassets */; };
 		6365BFE71EEAAF3B0028A259 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6365BFE61EEAAF3B0028A259 /* Checkbox.swift */; };
 		6365BFEA1EEAB1ED0028A259 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6365BFE81EEAB1ED0028A259 /* Main.storyboard */; };
 		637CDE041EF56DC100936538 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CDE031EF56DC100936538 /* ChatViewController.swift */; };
@@ -27,9 +28,10 @@
 /* Begin PBXFileReference section */
 		45F1D029D8957987F0345C51 /* Pods-NiaNowTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowTests/Pods-NiaNowTests.debug.xcconfig"; sourceTree = "<group>"; };
 		58A1A71A285D14FDF1FF691A /* Pods-NiaNowUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NiaNowUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NiaNowUITests/Pods-NiaNowUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		63188E7D1F0518FF008B762E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		632663E11EF039AD00F845B7 /* Member.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6365BFE41EEA9F900028A259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		635045611F07C2FB00704A5A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6365BFE61EEAAF3B0028A259 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		6365BFE91EEAB1ED0028A259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		637CDE031EF56DC100936538 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -120,9 +122,9 @@
 				63F1CC611EE4353800EF1809 /* NiaClassListViewController.swift */,
 				63F1CC981EE5136B00EF1809 /* NiaClassViewController.swift */,
 				632A81CC1EE7CD5100DFA84D /* Chat */,
-				6365BFE41EEA9F900028A259 /* Assets.xcassets */,
 				63F1CC681EE4353800EF1809 /* LaunchScreen.storyboard */,
 				6365BFE81EEAB1ED0028A259 /* Main.storyboard */,
+				635045611F07C2FB00704A5A /* Assets.xcassets */,
 				63F1CC6B1EE4353800EF1809 /* Info.plist */,
 				632A81C81EE68DC100DFA84D /* GoogleService-Info.plist */,
 			);
@@ -223,8 +225,9 @@
 			files = (
 				63F1CC6A1EE4353800EF1809 /* LaunchScreen.storyboard in Resources */,
 				632A81C91EE68DC100DFA84D /* GoogleService-Info.plist in Resources */,
-				6365BFE51EEA9F900028A259 /* Assets.xcassets in Resources */,
+				63188E7E1F0518FF008B762E /* Assets.xcassets in Resources */,
 				6365BFEA1EEAB1ED0028A259 /* Main.storyboard in Resources */,
+				635045621F07C2FB00704A5A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

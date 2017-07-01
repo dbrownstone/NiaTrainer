@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import EasyTipView
 
 class NiaClassListViewController: UITableViewController {
     
@@ -27,7 +28,7 @@ class NiaClassListViewController: UITableViewController {
     
     var signedIn = ""
     
-    var currentMember:Member!
+    var currentMember = loggedInMember
     
     private let ref = Database.database().reference(withPath: "classes")
     private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
@@ -35,10 +36,15 @@ class NiaClassListViewController: UITableViewController {
     let usersRef = Database.database().reference(withPath: "users")
     var user: User!
     
+    var easyTipView:EasyTipView!
+    var popupVisible = false
+    
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let segment: UISegmentedControl = UISegmentedControl(items: ["Chat", "Add Class"])
+        let segment: UISegmentedControl = UISegmentedControl(items: [UIImage(named:"chat")!, "Add Class"])
         segment.sizeToFit()
         segment.tintColor = UIColor.darkGray
         segment.setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Futura-Medium", size: 15)!],
@@ -52,6 +58,25 @@ class NiaClassListViewController: UITableViewController {
         self.membersName = self.keychain.get("fullname")!
         
         self.classes = appDelegate.classes
+        
+        var preferences = EasyTipView.Preferences()
+        preferences.drawing.font = UIFont(name: "Futura-Medium", size: 15)!
+        preferences.drawing.backgroundColor = UIColor(hue:0.58, saturation:0.1, brightness:1, alpha:1)
+        preferences.drawing.foregroundColor = UIColor.darkGray
+        preferences.drawing.textAlignment = NSTextAlignment.center
+        EasyTipView.globalPreferences = preferences
+        
+        preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.right
+        
+        let touch = UITapGestureRecognizer(target:self, action:#selector(NiaClassListViewController.removePopUp(_:)))
+        self.view.addGestureRecognizer(touch)
+    }
+    
+    func removePopUp(_ sender:AnyObject) {
+        if let tipView = self.easyTipView {
+            tipView.dismiss(withCompletion: nil)
+            popupVisible = false
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -89,7 +114,7 @@ class NiaClassListViewController: UITableViewController {
         })
     }
     
-    // MARK: - User Actions -
+        // MARK: - User Actions -
     
     
     func segmentAction(_ sender: UISegmentedControl) {
@@ -128,12 +153,12 @@ class NiaClassListViewController: UITableViewController {
             var niaClass = NiaClass(name: textField.text!,
                                           addedByUser: self.membersEmail,
                                           originator: self.membersName)
-            niaClass.addAMember(name: self.currentMember.name)
+            niaClass.addAMember(name: (self.currentMember?.name)!)
             let niaClassRef = self.ref.child(text.lowercased())
             niaClassRef.setValue(niaClass.toAnyObject())
-            self.currentMember.classes.append(niaClass.name)
-            let memberRef = self.ref.child(self.currentMember.name)
-            memberRef.setValue(self.currentMember.toAnyObject())
+            self.currentMember?.classes.append(niaClass.name)
+            let memberRef = self.ref.child((self.currentMember?.name)!)
+            memberRef.setValue(self.currentMember?.toAnyObject())
         }
         
         alertController.addAction(saveAction)
@@ -198,13 +223,41 @@ class NiaClassListViewController: UITableViewController {
         let alertController = UIAlertController(title: "Are You Sure?", message: "Do you really want to log yourself out?", preferredStyle: UIAlertControllerStyle.alert)
         let logoutAction = UIAlertAction(title: "Log me out", style: UIAlertActionStyle.default) { (action) -> Void in
             if Auth.auth().currentUser != nil {
-                appDelegate.signOut()
+                // User is signed in.
+                do {
+                    try Auth.auth().signOut()
+                    self.changeMemberAuthentication(newLoginStatus:false)
+                }
+                catch let error as NSError {
+                    print(error.localizedDescription)                    
+                }
             }
+            
         }
         alertController.addAction(logoutAction)
         
         alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func changeMemberAuthentication(newLoginStatus:Bool) {
+        loggedInMember.authenticated = false
+        let ref = Database.database().reference(withPath: "users")
+        let memberRef = ref.child((loggedInMember.name.lowercased()))
+        memberRef.setValue(loggedInMember.toAnyObject())
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = loggedInMember.name
+        
+        // Commit profile changes to server
+        changeRequest?.commitChanges() { (error) in
+            
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+            }
+        }
+        self.performSegue(withIdentifier: "unwindToVC1", sender:self as NiaClassListViewController)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -75,12 +75,8 @@ class ChatViewController: JSQMessagesViewController {
         self.view.addGestureRecognizer(touch)
     }
 
-    @IBAction func showPopup(_ sender: UIBarButtonItem) {
-        var preferences = EasyTipView.Preferences()
-        preferences.drawing.font = UIFont(name: "Futura-Medium", size: 15)!
-        preferences.drawing.backgroundColor = UIColor(hue:0.58, saturation:0.1, brightness:1, alpha:1)
-        preferences.drawing.foregroundColor = UIColor.darkGray
-        preferences.drawing.textAlignment = NSTextAlignment.center
+    @IBAction func showPopup(_ sender: Any) {
+        var preferences = EasyTipView.globalPreferences
         preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
         
         var text = ""
@@ -94,7 +90,7 @@ class ChatViewController: JSQMessagesViewController {
         }
         
         self.easyTipView = EasyTipView(text: text, preferences: preferences)
-        self.easyTipView.show(forItem: sender, withinSuperView: self.navigationController?.view)
+        self.easyTipView.show(forItem: sender as! UIBarItem, withinSuperView: self.navigationController?.view)
         popupVisible = true
     }
     
