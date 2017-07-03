@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520782553.0874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "displayAlertToAddClass()"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "segmentAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520782553.0874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "displayAlertToAddClass()"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "segmentAction(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -74,11 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520783632.077293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257">
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "changeMemberAuthentication(newLoginStatus:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -88,12 +90,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520783632.077293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "tableView(_:editActionsForRowAt:)"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "displayAlertToAddClass()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -120,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519888922.318814"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "createNewUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -136,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519888922.318814"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "createNewUser()"
             landmarkType = "7">
             <Locations>
@@ -248,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519888922.318814"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "authorize()"
             landmarkType = "7">
             <Locations>
@@ -296,27 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520782553.0874"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
-            landmarkName = "listNameFieldDidChange(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,12 +314,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/NiaClassListViewController.swift"
-            timestampString = "520060865.743487"
+            timestampString = "520775884.369634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NiaNow/NiaClassListViewController.swift"
+            timestampString = "520775884.369634"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -344,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519888922.318814"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "loginDidTouch(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,12 +362,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/ChatViewController.swift"
-            timestampString = "519813735.389062"
+            timestampString = "520782072.660187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "collectionView(_:layout:heightForMessageBubbleTopLabelAt:)"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "collectionView(_:avatarImageDataForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -408,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519888922.318814"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "authorize()"
             landmarkType = "7">
             <Locations>
@@ -491,22 +493,6 @@
             timestampString = "519813735.389062"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "showPopup(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NiaNow/ChatViewController.swift"
-            timestampString = "519813735.389062"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "addCurrentActiveUsers()"
@@ -520,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519889127.551113"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -536,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NiaNow/LoginViewController.swift"
-            timestampString = "519889127.551113"
+            timestampString = "520762419.586686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -557,7 +543,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "changeMemberAuthentication(membersName:newLoginStatus:)"
+            landmarkName = "changeMemberAuthentication(newLoginStatus:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -574,6 +560,54 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "applicationWillTerminate(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NiaNow/NiaClassListViewController.swift"
+            timestampString = "520782553.0874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NiaNow/NiaClassListViewController.swift"
+            timestampString = "520782553.0874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NiaNow/NiaClassListViewController.swift"
+            timestampString = "520783711.690018"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

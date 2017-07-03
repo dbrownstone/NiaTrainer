@@ -54,7 +54,7 @@ class NiaClassListViewController: UITableViewController {
         segment.setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Futura-Medium", size: 15)!],
                                        for: UIControlState.normal)
         segment.addTarget(self, action: #selector(NiaClassListViewController.segmentAction(_:)), for: .valueChanged)
-        longPressRec.addTarget(self, action: "showPopUp:")
+        longPressRec.addTarget(self, action: #selector(NiaClassListViewController.showPopUp(_ :)))
 
         segment.addGestureRecognizer(longPressRec)
 //        logoutBtn.addGestureRecognizer(longPressRec)
@@ -71,6 +71,8 @@ class NiaClassListViewController: UITableViewController {
         preferences.drawing.backgroundColor = UIColor(hue:0.58, saturation:0.1, brightness:1, alpha:1)
         preferences.drawing.foregroundColor = UIColor.darkGray
         preferences.drawing.textAlignment = NSTextAlignment.center
+        preferences.drawing.borderColor = UIColor.black
+        preferences.drawing.borderWidth = 2
         EasyTipView.globalPreferences = preferences
 
         let touch = UITapGestureRecognizer(target:self, action:#selector(NiaClassListViewController.removePopUp(_:)))
@@ -105,6 +107,7 @@ class NiaClassListViewController: UITableViewController {
             tipView.dismiss(withCompletion: nil)
             popupVisible = false
         }
+        segment.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -191,13 +194,16 @@ class NiaClassListViewController: UITableViewController {
             self.currentMember?.classes.append(niaClass.name)
             let memberRef = self.ref.child((self.currentMember?.name)!)
             memberRef.setValue(self.currentMember?.toAnyObject())
+            self.segment.selectedSegmentIndex = UISegmentedControlNoSegment
         }
         
         alertController.addAction(saveAction)
         saveAction.isEnabled = false
         self.currentCreateAction = saveAction
         
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+            self.segment.selectedSegmentIndex = UISegmentedControlNoSegment
+        })
         
         alertController.addTextField { (textField) -> Void in
             textField.placeholder = "Nia Class Name"
@@ -303,6 +309,7 @@ class NiaClassListViewController: UITableViewController {
             let classViewController = segue.destination as! NiaClassViewController
             classViewController.selectedClass = sender as! NiaClass
         }
+        segment.selectedSegmentIndex = UISegmentedControlNoSegment
     }
 }
 
