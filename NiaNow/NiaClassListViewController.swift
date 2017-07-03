@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Firebase
 import EasyTipView
 
@@ -37,21 +38,28 @@ class NiaClassListViewController: UITableViewController {
     var user: User!
     
     var easyTipView:EasyTipView!
+    var preferences = EasyTipView.Preferences()
     var popupVisible = false
     
     @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    var segment: UISegmentedControl!
+    let longPressRec = UILongPressGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let segment: UISegmentedControl = UISegmentedControl(items: [UIImage(named:"chat")!, "Add Class"])
+        segment = UISegmentedControl(items: [UIImage(named:"chat")!, "Add Class"])
         segment.sizeToFit()
         segment.tintColor = UIColor.darkGray
         segment.setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Futura-Medium", size: 15)!],
                                        for: UIControlState.normal)
         segment.addTarget(self, action: #selector(NiaClassListViewController.segmentAction(_:)), for: .valueChanged)
-        
-        self.navigationItem.titleView = segment
+        longPressRec.addTarget(self, action: "showPopUp:")
+
+        segment.addGestureRecognizer(longPressRec)
+//        logoutBtn.addGestureRecognizer(longPressRec)
+        let barButtonItem = UIBarButtonItem(customView:segment)
+        self.navigationItem.rightBarButtonItem = barButtonItem
         
         self.membersEmail = self.keychain.get("email")!
         self.membersPhone = keychain.get("phone")!
@@ -59,17 +67,37 @@ class NiaClassListViewController: UITableViewController {
         
         self.classes = appDelegate.classes
         
-        var preferences = EasyTipView.Preferences()
         preferences.drawing.font = UIFont(name: "Futura-Medium", size: 15)!
         preferences.drawing.backgroundColor = UIColor(hue:0.58, saturation:0.1, brightness:1, alpha:1)
         preferences.drawing.foregroundColor = UIColor.darkGray
         preferences.drawing.textAlignment = NSTextAlignment.center
         EasyTipView.globalPreferences = preferences
-        
-        preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.right
-        
+
         let touch = UITapGestureRecognizer(target:self, action:#selector(NiaClassListViewController.removePopUp(_:)))
         self.view.addGestureRecognizer(touch)
+    }
+    
+    func showPopUp(_ sender:AnyObject) {
+        var msg = ""
+        let touchLoc = (sender as! UILongPressGestureRecognizer).location(in: self.segment)
+        let segmentWidth = segment.frame.size.width
+        let chatBtnOrigin = segment.frame.origin.x
+        let classBtnOrigin = chatBtnOrigin + (segmentWidth / 2)
+        if (touchLoc.x + chatBtnOrigin) < classBtnOrigin {
+            //chat
+            msg = "Chat with other members of the selected class"
+            //preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+        } else {
+            //add class
+            msg = "Add a new class"
+            //preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.left
+        }
+        if !popupVisible {
+            preferences.drawing.backgroundColor = UIColor.white
+            self.easyTipView = EasyTipView(text: msg, preferences: preferences)
+            self.easyTipView.show(forItem: self.navigationItem.rightBarButtonItem!, withinSuperView: self.navigationController?.view)
+            popupVisible = true
+        }
     }
     
     func removePopUp(_ sender:AnyObject) {
@@ -91,6 +119,10 @@ class NiaClassListViewController: UITableViewController {
                 } else if self.membersName.characters.count > 0 &&
                     niaClass.members.contains(self.membersName) {
                     newClasses.append(niaClass)
+                    if loggedInMember.classes[0] == "" {
+                        loggedInMember.classes = []
+                    }
+                    loggedInMember.classes.append(niaClass.name)
                 }
             }
             self.classes = newClasses

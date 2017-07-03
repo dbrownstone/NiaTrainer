@@ -105,15 +105,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(cancelAction)
                 
                 self.present(alert, animated: true, completion: nil)
-                return            }
-            else if let user = user {
+            } else if let user = user {
                 print(user.displayName ?? "")
                 self.memberExistsInDB = true
                 self.uid = user.uid
                 loggedInMember = Member(email: self.email,  name: self.membersName, phone: self.phone, uid: self.uid, niaClass:"")
                 self.updateUserProfile(fullname:self.membersName)
+                
             }
-            self.continueToNextScreen()
         }
     }
     
@@ -212,21 +211,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let userRef = Database.database().reference(withPath:"users")
             
             userRef.observe(.value, with: { snapshot in
-                if snapshot.childrenCount == 0 {
-                    self.setKeyChainParameters()
-                    self.authorize()
-                } else {
+                if snapshot.childrenCount > 0 {
                     for aUser in snapshot.children {
                         let member = Member(snapshot: aUser as! DataSnapshot)
                         if self.email == member.email {
                             self.membersName = member.name
                             self.phone = member.phoneNo
                             self.keychain.set(self.membersName, forKey:"fullname")
-                            self.setKeyChainParameters()
-                            self.authorize()
                         }
                     }
                 }
+                self.setKeyChainParameters()
+                self.authorize()
             })
         }
     }

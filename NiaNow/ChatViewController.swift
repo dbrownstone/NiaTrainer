@@ -78,7 +78,7 @@ class ChatViewController: JSQMessagesViewController {
     @IBAction func showPopup(_ sender: Any) {
         var preferences = EasyTipView.globalPreferences
         preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
-        
+
         var text = ""
         for i in 0..<currentActiveMembers.count {
             switch i {
@@ -88,7 +88,7 @@ class ChatViewController: JSQMessagesViewController {
                 text = "\(text),\n\(currentActiveMembers[i])"
             }
         }
-        
+
         self.easyTipView = EasyTipView(text: text, preferences: preferences)
         self.easyTipView.show(forItem: sender as! UIBarItem, withinSuperView: self.navigationController?.view)
         popupVisible = true
