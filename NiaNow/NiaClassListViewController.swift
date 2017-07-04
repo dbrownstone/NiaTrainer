@@ -214,7 +214,7 @@ class NiaClassListViewController: UITableViewController {
             let niaClassRef = self.classRef.child(text.lowercased())
             niaClassRef.setValue(niaClass.toAnyObject())
             self.currentMember?.classes.append(niaClass.name)
-            let memberRef = self.classRef.child((self.currentMember?.name)!)
+            let memberRef = self.usersRef.child((self.currentMember?.name.lowercased())!)
             memberRef.setValue(self.currentMember?.toAnyObject())
             self.segment.selectedSegmentIndex = UISegmentedControlNoSegment
         }
