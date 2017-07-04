@@ -126,8 +126,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print(user)
                 var member = Member(email: self.email,  name: self.membersName, phone: self.phone, uid: UUID().uuidString, niaClass:"")
                 member.authenticated = true
-                let ref = Database.database().reference(withPath: "users")
-                let memberRef = ref.child((self.membersName.lowercased()))
+                let userRef = Database.database().reference(withPath: "users")
+                let memberRef = userRef.child((self.membersName.lowercased()))
                 memberRef.setValue(member.toAnyObject())
                 loggedInMember = member
 //                self.setKeyChainParameters()

@@ -31,7 +31,7 @@ class NiaClassListViewController: UITableViewController {
     
     var currentMember = loggedInMember
     
-    private let ref = Database.database().reference(withPath: "classes")
+    private let classRef = Database.database().reference(withPath: "classes")
     private lazy var channelRef: DatabaseReference = Database.database().reference().child("channels")
     private var channelRefHandle: DatabaseHandle?
     let usersRef = Database.database().reference(withPath: "users")
@@ -40,6 +40,8 @@ class NiaClassListViewController: UITableViewController {
     var easyTipView:EasyTipView!
     var preferences = EasyTipView.Preferences()
     var popupVisible = false
+    
+    var tableViewCellRows:[CGRect]!
     
     @IBOutlet weak var logoutBtn: UIBarButtonItem!
     var segment: UISegmentedControl!
@@ -103,15 +105,35 @@ class NiaClassListViewController: UITableViewController {
     }
     
     func removePopUp(_ sender:AnyObject) {
+        let touchLoc = (sender as! UITapGestureRecognizer).location(in: self.tableView)
+        let indexPath = NSIndexPath(row: getTheTableRow(touchLoc), section:0)
+        
+//        print("Y of Cell is: \(rectOfCellInSuperview.origin.y)
+
         if let tipView = self.easyTipView {
             tipView.dismiss(withCompletion: nil)
             popupVisible = false
         }
         segment.selectedSegmentIndex = UISegmentedControlNoSegment
+//        self.tableView.selectRow(at:indexPath as IndexPath, animated:true, scrollPosition:.bottom)
+        self.performSegue(withIdentifier: "participants", sender:classes[indexPath.row] )
+
+    }
+    
+    func getTheTableRow(_ rect:CGPoint) -> NSInteger {
+        if rect.y > 0 {
+            for i in 0..<tableViewCellRows.count {
+                let row = tableViewCellRows[i]
+                if rect.y < row.origin.y {
+                    return i - 1
+                }
+            }
+        }
+        return 0
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        ref.observe(.value, with: { snapshot in
+        classRef.observe(.value, with: { snapshot in
             var newClasses: [NiaClass] = []
             for aClass in snapshot.children {
                 let niaClass = NiaClass(snapshot: aClass as! DataSnapshot)
@@ -189,10 +211,10 @@ class NiaClassListViewController: UITableViewController {
                                           addedByUser: self.membersEmail,
                                           originator: self.membersName)
             niaClass.addAMember(name: (self.currentMember?.name)!)
-            let niaClassRef = self.ref.child(text.lowercased())
+            let niaClassRef = self.classRef.child(text.lowercased())
             niaClassRef.setValue(niaClass.toAnyObject())
             self.currentMember?.classes.append(niaClass.name)
-            let memberRef = self.ref.child((self.currentMember?.name)!)
+            let memberRef = self.classRef.child((self.currentMember?.name)!)
             memberRef.setValue(self.currentMember?.toAnyObject())
             self.segment.selectedSegmentIndex = UISegmentedControlNoSegment
         }
@@ -230,12 +252,17 @@ class NiaClassListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell")!
-        
+        let rectOfCellInTableView = tableView.rectForRow(at: indexPath)
         if indexPath.row == 0 {
+            tableViewCellRows = []
             cell.textLabel?.text = ""
             cell.detailTextLabel?.text = ""
             cell.accessoryType = .none
+            tableViewCellRows.append(rectOfCellInTableView)
             return cell
+        } else {
+            tableViewCellRows.append(rectOfCellInTableView)
+
         }
         let niaClass = classes[indexPath.row - 1]
         cell.textLabel?.text = niaClass.name
@@ -304,7 +331,7 @@ class NiaClassListViewController: UITableViewController {
             let chatViewController = segue.destination as! ChatViewController
             chatViewController.senderDisplayName = self.membersName
             chatViewController.niaClass = niaClass
-            chatViewController.niaClassRef = self.ref.child(niaClass.name.lowercased())
+            chatViewController.niaClassRef = self.classRef.child(niaClass.name.lowercased())
         } else if segue.identifier == "participants" {
             let classViewController = segue.destination as! NiaClassViewController
             classViewController.selectedClass = sender as! NiaClass
