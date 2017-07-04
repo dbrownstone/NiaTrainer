@@ -284,7 +284,7 @@
         <scene sceneID="khQ-h0-Z61">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9JH-FZ-TDL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Classes" image="classes_tab" id="CvC-uo-Z2C"/>
+                    <tabBarItem key="tabBarItem" title="Classes" image="class" id="CvC-uo-Z2C"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oEh-9c-XZJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -328,7 +328,7 @@
     <resources>
         <image name="Nia-Logo-250" width="250" height="125"/>
         <image name="checked" width="40" height="40"/>
-        <image name="classes_tab" width="25" height="25"/>
+        <image name="class" width="25" height="25"/>
         <image name="logout" width="25" height="25"/>
         <image name="unchecked" width="40" height="40"/>
     </resources>

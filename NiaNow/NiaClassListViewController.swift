@@ -18,6 +18,7 @@ class NiaClassListViewController: UITableViewController {
     
     // MARK: Properties
     var classes:[NiaClass] = []
+    var selectedChatClass:NiaClass!
     var keychain = KeychainSwift()
     var membersName = ""
     var membersPhone = ""
@@ -50,7 +51,7 @@ class NiaClassListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        segment = UISegmentedControl(items: [UIImage(named:"chat")!, "Add Class"])
+        segment = UISegmentedControl(items: [UIImage(named:"chat")!, UIImage(named:"class")!])
         segment.sizeToFit()
         segment.tintColor = UIColor.darkGray
         segment.setTitleTextAttributes([NSFontAttributeName: UIFont(name:"Futura-Medium", size: 15)!],
@@ -106,7 +107,8 @@ class NiaClassListViewController: UITableViewController {
     
     func removePopUp(_ sender:AnyObject) {
         let touchLoc = (sender as! UITapGestureRecognizer).location(in: self.tableView)
-        let indexPath = NSIndexPath(row: getTheTableRow(touchLoc), section:0)
+        let index = getTheTableRow(touchLoc)
+        let indexPath = NSIndexPath(row: index, section:0)
         
 //        print("Y of Cell is: \(rectOfCellInSuperview.origin.y)
 
@@ -116,12 +118,21 @@ class NiaClassListViewController: UITableViewController {
         }
         segment.selectedSegmentIndex = UISegmentedControlNoSegment
 //        self.tableView.selectRow(at:indexPath as IndexPath, animated:true, scrollPosition:.bottom)
-        self.performSegue(withIdentifier: "participants", sender:classes[indexPath.row] )
+        if index > -1 {
+            self.performSegue(withIdentifier: "participants", sender:classes[indexPath.row] )
+        }
 
     }
     
     func getTheTableRow(_ rect:CGPoint) -> NSInteger {
         let verticalPos = rect.y
+        var theTotalHeightOfTable = 0 as CGFloat
+        for aRow in tableViewCellRows {
+            theTotalHeightOfTable += aRow.size.height
+        }
+        if verticalPos > theTotalHeightOfTable {
+            return -1
+        }
         if rect.y > 0 {
             for i in 0..<tableViewCellRows.count {
                 let row = tableViewCellRows[i]
@@ -181,11 +192,40 @@ class NiaClassListViewController: UITableViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             if self.classes.count > 1 {
+                selectTheClass()
             } else {
                 self.performSegue(withIdentifier: "showClassChat", sender:self.classes[0])            }
         default:
             didClickOnAddButton()
         }
+    }
+    
+    func selectTheClass() {
+        let optionMenuController = UIAlertController(title: "Chat Mode", message: "Select which class you wish to join", preferredStyle: .actionSheet)
+        
+        // Create UIAlertAction for UIAlertController
+        
+        for aClass in self.classes {
+            let classTitle = aClass.name
+            var addAction:UIAlertAction!
+            if aClass.members.contains(loggedInMember.name) {
+                addAction = UIAlertAction(title: classTitle, style: .default, handler: {
+                    (alert: UIAlertAction!) -> Void in
+                    print("\(classTitle) selected")
+                    self.performSegue(withIdentifier: "showClassChat", sender:aClass)
+                })
+                optionMenuController.addAction(addAction)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction!) -> Void in
+            print("Cancel")
+        })
+        optionMenuController.addAction(cancelAction)
+        // Present UIAlertController with Action Sheet
+        
+        self.present(optionMenuController, animated: true, completion: nil)
+
     }
     
     @IBAction func didClickOnEditButton(_ sender: UIBarButtonItem) {
