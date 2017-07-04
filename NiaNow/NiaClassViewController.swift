@@ -58,6 +58,10 @@ class NiaClassViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.title = self.selectedClass.name
+        if self.selectedClass.originatorFullname != loggedInMember.name {
+            self.navigationItem.rightBarButtonItem = nil
+        }
     }
     
     // MARK: - User Actions -
