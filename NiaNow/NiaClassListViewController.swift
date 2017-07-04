@@ -121,10 +121,13 @@ class NiaClassListViewController: UITableViewController {
     }
     
     func getTheTableRow(_ rect:CGPoint) -> NSInteger {
+        let verticalPos = rect.y
         if rect.y > 0 {
             for i in 0..<tableViewCellRows.count {
                 let row = tableViewCellRows[i]
-                if rect.y < row.origin.y {
+                let startRow = row.origin.y
+                let endRow = row.origin.y + row.size.height
+                if verticalPos >= startRow && verticalPos <= endRow {
                     return i - 1
                 }
             }
