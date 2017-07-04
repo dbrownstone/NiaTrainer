@@ -44,9 +44,10 @@ class NiaClassListViewController: UITableViewController {
     
     var tableViewCellRows:[CGRect]!
     
-    @IBOutlet weak var logoutBtn: UIBarButtonItem!
     var segment: UISegmentedControl!
     let longPressRec = UILongPressGestureRecognizer()
+    let logoutPress = UILongPressGestureRecognizer()
+    var logoutBtn:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +61,19 @@ class NiaClassListViewController: UITableViewController {
         longPressRec.addTarget(self, action: #selector(NiaClassListViewController.showPopUp(_ :)))
 
         segment.addGestureRecognizer(longPressRec)
-//        logoutBtn.addGestureRecognizer(longPressRec)
+        
+        logoutBtn = UIButton(type: .custom)
+        logoutBtn.setImage(UIImage(named: "logout"), for: .normal)
+        logoutBtn.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        logoutBtn.addTarget(self, action: #selector(NiaClassListViewController.logout), for: .touchUpInside)
+        logoutBtn.addGestureRecognizer(logoutPress)
+        logoutPress.addTarget(self, action: #selector(NiaClassListViewController.showLogoutPopUp(_ :)))
+
+        
         let barButtonItem = UIBarButtonItem(customView:segment)
         self.navigationItem.rightBarButtonItem = barButtonItem
+        let leftBarButton = UIBarButtonItem(customView: logoutBtn)
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
         self.membersEmail = self.keychain.get("email")!
         self.membersPhone = keychain.get("phone")!
@@ -101,6 +112,16 @@ class NiaClassListViewController: UITableViewController {
             preferences.drawing.backgroundColor = UIColor.white
             self.easyTipView = EasyTipView(text: msg, preferences: preferences)
             self.easyTipView.show(forItem: self.navigationItem.rightBarButtonItem!, withinSuperView: self.navigationController?.view)
+            popupVisible = true
+        }
+    }
+    
+    func showLogoutPopUp(_ sender:AnyObject) {
+        let msg = "Logout"
+        if !popupVisible {
+            preferences.drawing.backgroundColor = UIColor.white
+            self.easyTipView = EasyTipView(text: msg, preferences: preferences)
+            self.easyTipView.show(forItem: self.navigationItem.leftBarButtonItem!, withinSuperView: self.navigationController?.view)
             popupVisible = true
         }
     }

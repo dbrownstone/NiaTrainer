@@ -48,16 +48,8 @@
                             <outlet property="delegate" destination="6Lo-nO-a1r" id="CX9-NT-Ea7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="YbS-qM-dWc">
-                        <barButtonItem key="leftBarButtonItem" image="logout" id="V1W-o6-iDX">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="logout:" destination="6Lo-nO-a1r" id="PXf-Up-3aD"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="YbS-qM-dWc"/>
                     <connections>
-                        <outlet property="logoutBtn" destination="V1W-o6-iDX" id="Ytm-iZ-v8g"/>
                         <segue destination="M9X-7M-PUO" kind="show" identifier="participants" id="b6H-xI-Kmc"/>
                         <segue destination="8vq-nd-FTi" kind="show" identifier="showClassChat" id="Br4-xN-UEP"/>
                         <segue destination="QJ4-Me-L0U" kind="unwind" identifier="unwindToVC1" unwindAction="unwindToVC1WithSegue:" id="PhI-8f-oan"/>
@@ -329,7 +321,6 @@
         <image name="Nia-Logo-250" width="250" height="125"/>
         <image name="checked" width="40" height="40"/>
         <image name="class" width="25" height="25"/>
-        <image name="logout" width="25" height="25"/>
         <image name="unchecked" width="40" height="40"/>
     </resources>
 </document>
