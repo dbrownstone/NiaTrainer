@@ -73,6 +73,8 @@ class ChatViewController: JSQMessagesViewController {
         
         let touch = UITapGestureRecognizer(target:self, action:#selector(ChatViewController.removePopUp(_:)))
         self.view.addGestureRecognizer(touch)
+        
+        Messaging.messaging().subscribe(toTopic: title!);
     }
 
     @IBAction func showPopup(_ sender: Any) {
@@ -223,6 +225,7 @@ class ChatViewController: JSQMessagesViewController {
     private func addMessage(withId id: String, name: String, text: String) {
         if let message = JSQMessage(senderId: id, displayName: name, text: text) {
             messages.append(message)
+//            Messaging.messaging().sendMessage(["DavidMsg" : message], to: String, withMessageID: String, timeToLive: 30)
         }
     }
     

@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+var token:String!
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Constants
@@ -111,7 +113,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.uid = user.uid
                 loggedInMember = Member(email: self.email,  name: self.membersName, phone: self.phone, uid: self.uid, niaClass:"")
                 self.updateUserProfile(fullname:self.membersName)
-                
+                token = Messaging.messaging().fcmToken
+                print("FCM token: \(token ?? "")")
             }
         }
     }
