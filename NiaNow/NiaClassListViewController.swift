@@ -215,7 +215,8 @@ class NiaClassListViewController: UITableViewController {
             if self.classes.count > 1 {
                 selectTheClass()
             } else {
-                self.performSegue(withIdentifier: "showClassChat", sender:self.classes[0])            }
+                self.performSegue(withIdentifier: "showClassChat", sender:self.classes[0])
+            }
         default:
             didClickOnAddButton()
         }
@@ -335,15 +336,25 @@ class NiaClassListViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if indexPath.row == 0 {
+            return []
+        }
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { (deleteAction, indexPath) -> Void in
             let niaClass = self.classes[indexPath.row - 1]
             niaClass.ref?.removeValue()
         }
-        return [deleteAction]
+        let chatAction = UITableViewRowAction(style: .normal, title: "Chat") { (chatAction, indexPath) -> Void in
+            print("Go to chat mode")
+            self.performSegue(withIdentifier: "showClassChat", sender:self.classes[indexPath.row - 1])
+        }
+        chatAction.backgroundColor = UIColor.green
+        return [deleteAction, chatAction]
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "participants", sender:classes[indexPath.row - 1] )
+        if indexPath.row > 0 {
+            self.performSegue(withIdentifier: "participants", sender:classes[indexPath.row - 1] )
+        }
     }
     
     // MARK: - Navigation

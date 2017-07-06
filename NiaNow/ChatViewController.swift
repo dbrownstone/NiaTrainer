@@ -16,10 +16,12 @@ class ChatViewController: JSQMessagesViewController {
 
     lazy var storageRef: StorageReference = Storage.storage().reference(forURL: "gs://nianow-a5d5b.appspot.com")
     
+    var lowerCaseTitle:String!
     var niaClassRef: DatabaseReference?
     var niaClass: NiaClass? {
         didSet {
             title = niaClass?.name
+            lowerCaseTitle = title!.replacingOccurrences(of: " ", with: "_")
         }
     }
     
@@ -74,7 +76,7 @@ class ChatViewController: JSQMessagesViewController {
         let touch = UITapGestureRecognizer(target:self, action:#selector(ChatViewController.removePopUp(_:)))
         self.view.addGestureRecognizer(touch)
         
-        Messaging.messaging().subscribe(toTopic: title!);
+        Messaging.messaging().subscribe(toTopic: lowerCaseTitle);
     }
 
     @IBAction func showPopup(_ sender: Any) {
@@ -128,6 +130,7 @@ class ChatViewController: JSQMessagesViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         removePopUp(self)
+        Messaging.messaging().unsubscribe(fromTopic: lowerCaseTitle!)
         super.viewWillDisappear(animated)
     }
     
@@ -225,6 +228,20 @@ class ChatViewController: JSQMessagesViewController {
     private func addMessage(withId id: String, name: String, text: String) {
         if let message = JSQMessage(senderId: id, displayName: name, text: text) {
             messages.append(message)
+            /*
+             https://fcm.googleapis.com/fcm/send
+             Content-Type:application/json
+             Authorization:key=AIzaSyZ-1u...0GBYzPu7Udno5aA
+             
+             {
+             "to" : "/topics/\(lowerCaseTitle)",
+             "priority" : "high",
+             "notification" : {
+             "body" : message,
+             "title" : "FCM Message",
+             }
+             }
+             */
 //            Messaging.messaging().sendMessage(["DavidMsg" : message], to: String, withMessageID: String, timeToLive: 30)
         }
     }
