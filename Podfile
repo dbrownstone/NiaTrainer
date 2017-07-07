@@ -11,5 +11,6 @@ target 'NiaNow' do
   pod 'Firebase/Messaging'
   pod 'JSQMessagesViewController'
   pod 'EasyTipView'
+  pod 'SwiftyJSON'
 
 end

@@ -11,6 +11,7 @@ import Firebase
 import JSQMessagesViewController
 import EasyTipView
 import Photos
+import SwiftyJSON
 
 class ChatViewController: JSQMessagesViewController {
 
@@ -213,6 +214,41 @@ class ChatViewController: JSQMessagesViewController {
         finishSendingMessage()
         
         isTyping = false
+        var jsonData:Data!
+        do {
+            jsonData = try JSONSerialization.data(withJSONObject: ["to" : "/topics/(lowerCaseTitle)" as AnyObject, "priority" : "high" as AnyObject, "notification" : ["body" : text as AnyObject, "title" : "(lowercaseTitle) Chat"]] as [String : Any], options: .prettyPrinted)
+        } catch {
+            
+        }
+        let url = "https://fcm.googleapis.com/fcm/send"
+        let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+        request.timeoutInterval = 20
+        request.httpMethod = "POST"
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.setValue("\(token)", forHTTPHeaderField:"Authorization")
+        request.httpBody = jsonData
+        
+        print(request)
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
+            let message = JSON(data: data!)
+        })
+        /*
+         https://fcm.googleapis.com/fcm/send
+         Content-Type:application/json
+         Authorization:key=AIzaSyZ-1u...0GBYzPu7Udno5aA
+         
+         {
+         "to" : "/topics/\(lowerCaseTitle)",
+         "priority" : "high",
+         "notification" : {
+         "body" : message,
+         "title" : "FCM Message",
+         }
+         }
+         */
+        //            Messaging.messaging().sendMessage(["DavidMsg" : message], to: String, withMessageID: String, timeToLive: 30)
     }
     
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
@@ -228,21 +264,7 @@ class ChatViewController: JSQMessagesViewController {
     private func addMessage(withId id: String, name: String, text: String) {
         if let message = JSQMessage(senderId: id, displayName: name, text: text) {
             messages.append(message)
-            /*
-             https://fcm.googleapis.com/fcm/send
-             Content-Type:application/json
-             Authorization:key=AIzaSyZ-1u...0GBYzPu7Udno5aA
-             
-             {
-             "to" : "/topics/\(lowerCaseTitle)",
-             "priority" : "high",
-             "notification" : {
-             "body" : message,
-             "title" : "FCM Message",
-             }
-             }
-             */
-//            Messaging.messaging().sendMessage(["DavidMsg" : message], to: String, withMessageID: String, timeToLive: 30)
+            
         }
     }
     

@@ -58,7 +58,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWu-lV-8oY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QJ4-Me-L0U" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="141"/>
+            <point key="canvasLocation" x="2282" y="-524"/>
         </scene>
         <!--Nia Class View Controller-->
         <scene sceneID="Ux6-Bw-AOU">
@@ -110,7 +110,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aci-Om-BAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="140"/>
+            <point key="canvasLocation" x="3195" y="-525"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="ZGA-nT-Yi4">
@@ -265,7 +265,7 @@
                         <outlet property="checkbox" destination="5V3-tN-Szz" id="axZ-Hv-eMf"/>
                         <outlet property="textFieldLoginEmail" destination="r6T-tE-cOj" id="DxH-IO-FTM"/>
                         <outlet property="textFieldLoginPassword" destination="Qng-1S-y4H" id="hlb-dd-fuk"/>
-                        <segue destination="9JH-FZ-TDL" kind="show" identifier="LoginNia" id="sEN-Q1-dnL"/>
+                        <segue destination="xEx-16-kj0" kind="show" identifier="LoginNia" id="sEN-Q1-dnL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kOw-fs-X5L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,7 +289,41 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BlK-CU-I9L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="423" y="141"/>
+            <point key="canvasLocation" x="1239" y="-524"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="r0G-mY-e1D">
+            <objects>
+                <viewController id="QnZ-PD-UTA" customClass="AboutViewController" customModule="NiaNow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Apy-A0-Usz"/>
+                        <viewControllerLayoutGuide type="bottom" id="lcD-0w-Smj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yyR-Nb-HN9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmc-IS-SBR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tmc-IS-SBR" firstAttribute="centerX" secondItem="yyR-Nb-HN9" secondAttribute="centerX" id="Enp-SB-e4a"/>
+                            <constraint firstItem="Tmc-IS-SBR" firstAttribute="width" secondItem="yyR-Nb-HN9" secondAttribute="width" id="Qiw-fj-4b5"/>
+                            <constraint firstItem="Tmc-IS-SBR" firstAttribute="height" secondItem="yyR-Nb-HN9" secondAttribute="height" id="etW-Ud-T2v"/>
+                            <constraint firstItem="Tmc-IS-SBR" firstAttribute="top" secondItem="yyR-Nb-HN9" secondAttribute="top" id="s9f-gf-luO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aT5-Ws-gBu"/>
+                    <connections>
+                        <outlet property="theWebview" destination="Tmc-IS-SBR" id="VvI-YS-l10"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vRI-6U-AA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2281.875" y="929.57746478873241"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="fen-sA-SHc">
@@ -314,13 +348,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fq-Vw-s6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2276" y="900.89955022488766"/>
+            <point key="canvasLocation" x="2282" y="140"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4PX-aq-6pJ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="xEx-16-kj0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="geg-CT-AXE">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9JH-FZ-TDL" kind="relationship" relationship="viewControllers" id="VOA-SY-W84"/>
+                        <segue destination="HWz-bK-RRv" kind="relationship" relationship="viewControllers" id="iIL-fs-psE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T1S-Rh-dC8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="421.875" y="140.49295774647888"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="vgZ-8s-jfD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HWz-bK-RRv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="About" image="nia" id="qKc-sG-NSR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xmC-XB-DEk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QnZ-PD-UTA" kind="relationship" relationship="rootViewController" id="Xaa-6A-aKX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E53-nA-dhZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1238" y="930"/>
         </scene>
     </scenes>
     <resources>
         <image name="Nia-Logo-250" width="250" height="125"/>
         <image name="checked" width="40" height="40"/>
         <image name="class" width="25" height="25"/>
+        <image name="nia" width="25" height="16"/>
         <image name="unchecked" width="40" height="40"/>
     </resources>
 </document>
