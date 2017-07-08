@@ -12,5 +12,6 @@ target 'NiaNow' do
   pod 'JSQMessagesViewController'
   pod 'EasyTipView'
   pod 'SwiftyJSON'
+  pod 'MBProgressHUD'
 
 end
